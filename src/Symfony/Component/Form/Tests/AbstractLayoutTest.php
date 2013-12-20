@@ -1787,6 +1787,15 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
         , 2);
     }
 
+    public function testFieldset()
+    {
+        $form = $this->factory->createNamed('name', 'fieldset');
+
+        $this->assertWidgetMatchesXpath($form->createView(), array(),
+            '/fieldset[.="[trans]Name[/trans]"]'
+        );
+    }
+
     public function testButton()
     {
         $form = $this->factory->createNamed('name', 'button');

@@ -24,6 +24,15 @@ use Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper;
 
 class FormHelperDivLayoutTest extends AbstractDivLayoutTest
 {
+    public function testFieldset()
+    {
+        $form = $this->factory->createNamed('name', 'fieldset');
+
+        $this->assertWidgetMatchesXpath($form->createView(), array(),
+            '/fieldset[.="[trans]Name[/trans]"]'
+        );
+    }
+
     /**
      * @var PhpEngine
      */

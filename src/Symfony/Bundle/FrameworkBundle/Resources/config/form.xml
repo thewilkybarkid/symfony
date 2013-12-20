@@ -82,6 +82,9 @@
         <service id="form.type.email" class="Symfony\Component\Form\Extension\Core\Type\EmailType">
             <tag name="form.type" alias="email" />
         </service>
+        <service id="form.type.fieldset" class="Symfony\Component\Form\Extension\Core\Type\FieldsetType">
+            <tag name="form.type" alias="fieldset" />
+        </service>
         <service id="form.type.file" class="Symfony\Component\Form\Extension\Core\Type\FileType">
             <tag name="form.type" alias="file" />
         </service>

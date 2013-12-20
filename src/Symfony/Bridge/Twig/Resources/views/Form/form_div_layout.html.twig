@@ -263,6 +263,17 @@
 {% endspaceless %}
 {% endblock form_label %}
 
+{% block fieldset_label %}
+{% spaceless %}
+    {% if label is not sameas(false) %}
+        {% if label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+        <legend{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) }}</legend>
+    {% endif %}
+{% endspaceless %}
+{% endblock fieldset_label %}
+
 {% block button_label %}{% endblock %}
 
 {# Rows #}
@@ -298,6 +309,15 @@
 {% block hidden_row %}
     {{ form_widget(form) }}
 {% endblock hidden_row %}
+
+{% block fieldset_row %}
+{% spaceless %}
+    <fieldset>
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+    </fieldset>
+{% endspaceless %}
+{% endblock fieldset_row %}
 
 {# Misc #}
 
